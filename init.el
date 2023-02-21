@@ -13,6 +13,7 @@
  '(make-backup-files nil) ;; not make backup files
  '(use-short-answers t) ;; replaces 'yes-or-no' to 'y-or-n'
  '(recentf-mode t)
+ '(backward-delete-char-untabify-method nil) ;; make Emacs not convert tabs to spaces when pressing backspace
    ;; org mode
  '(org-hide-emphasis-markers t)
  '(org-src-fontify-natively t)
@@ -47,9 +48,6 @@
 	(indent-relative-maybe)
 )
 (global-set-key (kbd "RET") 'better-newline)
-
-;; backspace - actually remove character (Emacs by default doesn't actually delete the character, if it's a tab it untabifies it)
-(global-set-key (kbd "<backspace>") 'backward-delete-char)
 
 ;; tab - actually insert tab
 (global-set-key "\t" 'tab-to-tab-stop)
