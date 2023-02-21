@@ -65,14 +65,12 @@
 (global-set-key (kbd "C-s") 'save-buffer)
 
 ;; ctrl + d - duplicate line
-(defun duplicate-line ()
-	(interactive)
-	(let ((initial-position (point)))
-		(kill-whole-line)
-		(yank)
-		(yank)
-		(goto-char initial-position)
-	)
+(defun duplicate-line (initial-position)
+	(interactive "*d")
+	(kill-whole-line)
+	(yank)
+	(yank)
+	(goto-char initial-position)
 )
 (global-set-key (kbd "C-d") 'duplicate-line)
 
