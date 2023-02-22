@@ -1,7 +1,6 @@
 ;; Emacs++
 ;; https://github.com/Losiel/EmacsPlusPlus
 
-;; customization
 (custom-set-variables
  ;; usability 
  '(cua-mode t)
@@ -22,6 +21,11 @@
  '(desktop-save-mode t)
  '(desktop-path ("~/.emacs.d/" "~"))
  '(desktop-save t)
+ '(package-archives
+   (("gnu" . "https://elpa.gnu.org/packages/")
+    ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+    ("melpa" . "https://melpa.org/packages/"))
+  )
  
   ;; visual
  '(tool-bar-mode nil)
@@ -42,6 +46,7 @@
  '(mode-line-percent-position nil)
  '(mode-line-compact 'long)
 )
+(package-initialize)
 
 ;; notepad++ like theme
 (custom-set-faces
@@ -53,11 +58,6 @@
  '(cursor-face ((t (:background "light slate blue"))))
  '(line-numbers-face ((t (:background "gainsboro" :inherit (shadow default)))))
 )
-
-;; We need melpa
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
 
 ;; improved notepad++ functionality that CUA doesn't have
 ;;
