@@ -53,10 +53,10 @@
  '(font-lock-comment-face ((t (:foreground "forest green"))))
  '(font-lock-keyword-face ((t (:foreground "Blue1"))))
  '(font-lock-function-name-face ((t (:foreground "Purple"))))
- '(hl-line-face ((t (:background "lavender"))))
- '(region-face ((t (:background "gray"))))
+ '(hl-line ((t (:background "lavender"))))
+ '(region ((t (:background "gray"))))
  '(cursor-face ((t (:background "light slate blue"))))
- '(line-numbers-face ((t (:background "gainsboro" :inherit (shadow default)))))
+ '(line-number ((t (:background "gainsboro" :inherit (shadow default)))))
 )
 
 ;; improved notepad++ functionality that CUA doesn't have
