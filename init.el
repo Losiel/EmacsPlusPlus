@@ -18,6 +18,10 @@
  '(org-hide-emphasis-markers t)
  '(org-src-fontify-natively t)
  '(org-support-shift-select 'always)
+   ;; desktop save mode
+ '(desktop-save-mode t)
+ '(desktop-path ("~/.emacs.d/" "~"))
+ '(desktop-save t)
  
   ;; visual
  '(tool-bar-mode nil)
@@ -37,6 +41,11 @@
  '(mode-line-percent-position nil)
  '(mode-line-compact 'long)
 )
+
+;; We need melpa
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
 
 ;; improved notepad++ functionality that CUA doesn't have
 ;;
