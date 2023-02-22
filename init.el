@@ -31,6 +31,7 @@
  '(window-divider-mode t)
  '(inhibit-startup-screen t) ;; hide startup 
  '(frame-title-format "%b - Emacs") ;; Notepad++ title is more complicated than that but I couldn't be bothered
+ '(cursor-type 'bar)
    ;; tab bar
  '(tab-bar-mode t)
  '(tab-bar-new-tab-to 'rightmost)
@@ -44,9 +45,13 @@
 
 ;; notepad++ like theme
 (custom-set-faces
-	'(font-lock-comment-face ((t (:foreground "forest green"))))
-	'(font-lock-keyword-face ((t (:foreground "Blue1"))))
-	'(font-lock-function-name-face ((t (:foreground "Purple"))))
+ '(font-lock-comment-face ((t (:foreground "forest green"))))
+ '(font-lock-keyword-face ((t (:foreground "Blue1"))))
+ '(font-lock-function-name-face ((t (:foreground "Purple"))))
+ '(hl-line-face ((t (:background "lavender"))))
+ '(region-face ((t (:background "gray"))))
+ '(cursor-face ((t (:background "light slate blue"))))
+ '(line-numbers-face ((t (:background "gainsboro" :inherit (shadow default)))))
 )
 
 ;; We need melpa
