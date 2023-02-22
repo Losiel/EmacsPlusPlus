@@ -42,6 +42,13 @@
  '(mode-line-compact 'long)
 )
 
+;; notepad++ like theme
+(custom-set-faces
+	'(font-lock-comment-face ((t (:foreground "forest green"))))
+	'(font-lock-keyword-face ((t (:foreground "Blue1"))))
+	'(font-lock-function-name-face ((t (:foreground "Purple"))))
+)
+
 ;; We need melpa
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
