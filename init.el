@@ -55,7 +55,7 @@
  '(font-lock-function-name-face ((t (:foreground "Purple"))))
  '(hl-line ((t (:background "lavender"))))
  '(region ((t (:background "gray"))))
- '(cursor-face ((t (:background "light slate blue"))))
+ '(cursor ((t (:background "light slate blue"))))
  '(line-number ((t (:background "gainsboro" :inherit (shadow default)))))
 )
 
