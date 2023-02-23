@@ -116,7 +116,7 @@
 )
 
 (global-set-key "\t" 'better-tab)
-(global-set-key (kbd "S-<tab>") 'decrease-line-indent)
+(global-set-key (kbd "<backtab>") 'decrease-line-indent)
 
 ;; alt + f4 - close emacs
 (global-set-key (kbd "M-<f4>") 'save-buffers-kill-terminal)
