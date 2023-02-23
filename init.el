@@ -70,8 +70,53 @@
 )
 (global-set-key (kbd "RET") 'better-newline)
 
-;; tab - actually insert tab
-(global-set-key "\t" 'tab-to-tab-stop)
+;; indentation
+(defun select-line (initial-point)
+	;; https://emacs.stackexchange.com/a/22166
+	(interactive "d")
+	(beginning-of-line)
+	(setq this-command-keys-shift-translated t)
+	(call-interactively 'end-of-line)
+)
+(defun select-lines-in-region (beg end)
+"Selects every line in the region. For example: If the region starts at the middle of the line and ends at the start of another line, this function will make the region start at the beginning of that line to the end of that line"
+	(interactive "r")
+	(let (
+		(should-exchange-point-and-mark (= (point) beg))
+		(line-beginning (progn (goto-char beg) (move-beginning-of-line nil)))
+		)
+		(goto-char end)
+		(move-end-of-line nil)
+		(set-mark line-beginning)
+		(when should-exchange-point-and-mark (exchange-point-and-mark))
+	)
+)
+(defun better-tab (beg end)
+	(interactive "*r")
+	(if (not (use-region-p))
+		;; just put a tab if the region is not active
+		(tab-to-tab-stop)
+
+		;; indent region
+		(select-lines-in-region beg end)
+		(indent-rigidly-right-to-tab-stop (region-beginning) (region-end)) ;; todo: make so you can easily switch from tabs to spaces
+		(setq deactivate-mark nil)
+	)
+)
+
+(defun decrease-line-indent (beg end)
+	(interactive "*r")
+	(if (use-region-p)
+		(select-lines-in-region beg end)
+		(select-line (point))
+	)
+
+	(indent-rigidly-left-to-tab-stop (region-beginning) (region-end)) ;; todo: make so you can easily switch from tabs to spaces
+	(setq deactivate-mark nil)
+)
+
+(global-set-key "\t" 'better-tab)
+(global-set-key (kbd "S-<tab>") 'decrease-line-indent)
 
 ;; alt + f4 - close emacs
 (global-set-key (kbd "M-<f4>") 'save-buffers-kill-terminal)
