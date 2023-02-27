@@ -144,3 +144,7 @@
 
 ;; ctrl + a - select whole buffer (needs some work to do)
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
+
+;; ctrl + + & ctrl + - - zoom in & out
+(global-set-key (kbd "C-+") (lambda () (interactive) (text-scale-increase 1)))
+(global-set-key (kbd "C--") (lambda () (interactive) (text-scale-decrease 1)))
