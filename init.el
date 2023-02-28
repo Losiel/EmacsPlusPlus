@@ -1,6 +1,26 @@
 ;; Emacs++
 ;; https://github.com/Losiel/EmacsPlusPlus
 
+;; Theme similar to Notepad++
+;; It will probably cause issues in some systems but I want to keep it short
+(deftheme Emacs++
+  "Notepad++-like theme")
+
+(custom-theme-set-variables
+ 'Emacs++
+ '(cursor-type 'bar))
+
+(custom-theme-set-faces
+ 'Emacs++
+ '(cursor ((t (:background "light slate blue"))))
+ '(highlight ((t (:background "lavender"))))
+ '(region ((t (:extend t :background "gray"))))
+ '(font-lock-comment-face ((t (:foreground "forest green"))))
+ '(font-lock-function-name-face ((t (:foreground "purple"))))
+ '(font-lock-keyword-face ((t (:foreground "blue"))))
+ '(line-number ((t (:inherit (shadow default) :background "gainsboro")))))
+
+;; General customization
 (custom-set-variables
  ;; usability 
  '(cua-mode t)
@@ -13,6 +33,11 @@
  '(use-short-answers t) ;; replaces 'yes-or-no' to 'y-or-n'
  '(recentf-mode t)
  '(backward-delete-char-untabify-method nil) ;; make Emacs not convert tabs to spaces when pressing backspace
+ '(package-archives
+   (("gnu" . "https://elpa.gnu.org/packages/")
+    ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+    ("melpa" . "https://melpa.org/packages/"))
+  )
    ;; org mode
  '(org-hide-emphasis-markers t)
  '(org-src-fontify-natively t)
@@ -21,11 +46,6 @@
  '(desktop-save-mode t)
  '(desktop-path ("~/.emacs.d/" "~"))
  '(desktop-save t)
- '(package-archives
-   (("gnu" . "https://elpa.gnu.org/packages/")
-    ("nongnu" . "https://elpa.nongnu.org/nongnu/")
-    ("melpa" . "https://melpa.org/packages/"))
-  )
  
   ;; visual
  '(tool-bar-mode nil)
@@ -35,7 +55,7 @@
  '(window-divider-mode t)
  '(inhibit-startup-screen t) ;; hide startup 
  '(frame-title-format "%b - Emacs") ;; Notepad++ title is more complicated than that but I couldn't be bothered
- '(cursor-type 'bar)
+ '(custom-enabled-themes '(Emacs++))
    ;; tab bar
  '(tab-bar-mode t)
  '(tab-bar-new-tab-to 'rightmost)
@@ -47,17 +67,6 @@
  '(mode-line-compact 'long)
 )
 (package-initialize)
-
-;; notepad++ like theme
-(custom-set-faces
- '(font-lock-comment-face ((t (:foreground "forest green"))))
- '(font-lock-keyword-face ((t (:foreground "Blue1"))))
- '(font-lock-function-name-face ((t (:foreground "Purple"))))
- '(hl-line ((t (:background "lavender"))))
- '(region ((t (:background "gray"))))
- '(cursor ((t (:background "light slate blue"))))
- '(line-number ((t (:background "gainsboro" :inherit (shadow default)))))
-)
 
 ;; improved notepad++ functionality that CUA doesn't have
 ;;
